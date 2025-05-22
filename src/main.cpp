@@ -21,8 +21,6 @@ class $modify(AchievementBar) {
 		int highestZ = scene->getHighestChildZ();
 		highestZ++;
 
-		highestZ = std::clamp(highestZ, 1000, 0);
-
 		scene->addChild(this, highestZ);
 		
 		this->setPositionY(director->getScreenTop() + 2.f);
@@ -45,11 +43,13 @@ class $modify(AchievementBar) {
 	}
 };
 
+#ifdef DEBUG_BUILD
 class $modify(MenuLayer) {
 	void keyDown(enumKeyCodes key) {
 		if (key == enumKeyCodes::KEY_G) {
-			AchievementNotifier::sharedState()->notifyAchievement("test ach", "ach", "player_11", false);
+			AchievementNotifier::sharedState()->notifyAchievement("long title lada dada dada dada", "ach", "color2_11", false);
 		}
 		MenuLayer::keyDown(key);
 	}
 };
+#endif

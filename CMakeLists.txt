@@ -10,9 +10,26 @@ set(CMAKE_CXX_VISIBILITY_PRESET hidden)
 
 project(old_animations VERSION 1.0.0)
 
-file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp)
-
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS src/*.cpp ${OS_SOURCES})
 add_library(${PROJECT_NAME} SHARED ${SOURCES})
+
+if(DEFINED ENV{GITHUB_ACTIONS})
+# Enable LTO for smaller binaries
+set_property(TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+target_compile_definitions(${PROJECT_NAME} PRIVATE GITHUB_ACTIONS=1)
+message(STATUS "GitHub Actions build detected")
+endif()
+
+target_include_directories(${PROJECT_NAME} PRIVATE src)
+
+# Debug macro (Taken from EclipseMenu)
+if (NOT DEFINED ENV{GITHUB_ACTIONS})
+  target_compile_definitions(
+    ${PROJECT_NAME} PRIVATE
+      $<$<CONFIG:Debug>:DEBUG_BUILD>
+      $<$<CONFIG:RelWithDebInfo>:DEBUG_BUILD>
+  )
+endif()
 
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")
