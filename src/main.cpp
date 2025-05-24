@@ -8,6 +8,7 @@ struct HookAchievementBar : geode::Modify<HookAchievementBar, AchievementBar> {
 	
 		m_bg->setContentSize({ 300.f, 70.f });
 		m_layerColor->setPositionY(35.f);
+		m_titleLabel->setPositionY(11.5);
 
 		m_unkUnused = 74;
 		
