@@ -1,3 +1,3 @@
-# Template Mod
+# Old Achievement Animation
 
-Edit about.md to change this
+Reverts the achievement animation to its pre 2.1 counterpart

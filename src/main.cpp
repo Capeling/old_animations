@@ -5,15 +5,14 @@ struct HookAchievementBar : geode::Modify<HookAchievementBar, AchievementBar> {
 	bool init(char const* title, char const* desc, char const* icon, bool quest) {
 		if (!AchievementBar::init(title, desc, icon, quest))
 			return false;
-	
+		
+		m_achievementGlowSprite->setVisible(false);
 		m_bg->setContentSize({ 300.f, 70.f });
 		m_layerColor->setPositionY(35.f);
 		m_titleLabel->setPositionY(11.5);
-
-		m_unkUnused = 74;
 		
 		std::string iconStr = icon;
-		if (iconStr.starts_with("color")) {
+		if (!quest && iconStr.starts_with("color")) {
 			auto sfc = cocos2d::CCSpriteFrameCache::get();
 			m_achievementDescription->setString("Unlocked new Color!");
 
@@ -35,12 +34,11 @@ struct HookAchievementBar : geode::Modify<HookAchievementBar, AchievementBar> {
 		scene->addChild(this, highestZ);
 		
 		this->setPositionY(director->getScreenTop() + 2.f);
-		m_achievementGlowSprite->setVisible(false);
 		
-		auto moveDown = cocos2d::CCEaseInOut::create(cocos2d::CCMoveBy::create(1.f, ccp(.0f, -m_unkUnused)), 2.f);
+		auto moveDown = cocos2d::CCEaseInOut::create(cocos2d::CCMoveBy::create(1.f, ccp(.0f, -74)), 2.f);
 		auto delay1P5 = cocos2d::CCDelayTime::create(1.5f);
 		
-		auto moveUp = cocos2d::CCEaseInOut::create(cocos2d::CCMoveBy::create(1.f, ccp(.0f, m_unkUnused)), 2.f);
+		auto moveUp = cocos2d::CCEaseInOut::create(cocos2d::CCMoveBy::create(1.f, ccp(.0f, 74)), 2.f);
 		auto callFunc = cocos2d::CCCallFunc::create(AchievementNotifier::sharedState(), callfunc_selector(AchievementNotifier::achievementDisplayFinished));
 		
 		auto sequence = cocos2d::CCSequence::create(

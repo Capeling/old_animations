@@ -1,14 +1,18 @@
 {
-	"geode": "4.4.0",
+	"geode": "4.5.0",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
 		"mac": "2.2074",
 		"ios": "2.2074"
 	},
-	"id": "capeling.old_animations",
-	"name": "old_animations",
+	"id": "capeling.old_ach_animation",
+	"name": "Old Achievement Animation",
 	"version": "v1.0.0",
 	"developer": "Capeling",
-	"description": ""
+	"description": "Pre 2.1 achievement animation!",
+	"links": {
+		"source": "https://github.com/Capeling/old_animations",
+		"homepage": "https://x.com/capelingg"
+	}
 }
