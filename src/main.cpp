@@ -62,8 +62,10 @@ class $modify(MenuLayer) {
 	void keyDown(cocos2d::enumKeyCodes key) {
 		if (key == cocos2d::enumKeyCodes::KEY_G) {
 			AchievementNotifier::sharedState()->notifyAchievement("Quest Complete!", "Collect 200 Mana Orbs", "currencyOrbIcon_001.png", true);
-		} else if (key == cocos2d::enumKeyCodes::KEY_H) {
-			AchievementNotifier::sharedState()->notifyAchievement("Test Achievement", "", "color_11", false);
+		} 
+
+		if (key == cocos2d::enumKeyCodes::KEY_D) {
+			AchievementNotifier::sharedState()->notifyAchievement("Test Achievement", "aaaaaa", "color_11", false);
 		}
 		MenuLayer::keyDown(key);
 	}

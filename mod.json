@@ -17,8 +17,8 @@
 	},
 	"settings": {
 		"squareColour": {
-			"default": true,
 			"type": "bool",
+			"default": true,
 			"name": "Square color",
 			"description": "Reverts the color icon back to a square like it was pre 2.1"
 		}
