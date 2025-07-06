@@ -1,5 +1,5 @@
 {
-	"geode": "4.5.0",
+	"geode": "4.6.3",
 	"gd": {
 		"win": "2.2074",
 		"android": "2.2074",
@@ -8,11 +8,19 @@
 	},
 	"id": "capeling.old_ach_animation",
 	"name": "Old Achievement Animation",
-	"version": "v1.0.0",
+	"version": "v1.0.1",
 	"developer": "Capeling",
 	"description": "Pre 2.1 achievement animation!",
 	"links": {
 		"source": "https://github.com/Capeling/old_animations",
 		"homepage": "https://x.com/capelingg"
+	},
+	"settings": {
+		"squareColour": {
+			"default": true,
+			"type": "bool",
+			"name": "Square color",
+			"description": "Reverts the color icon back to a square like it was pre 2.1"
+		}
 	}
 }

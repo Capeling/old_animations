@@ -10,6 +10,9 @@ struct HookAchievementBar : geode::Modify<HookAchievementBar, AchievementBar> {
 		m_bg->setContentSize({ 300.f, 70.f });
 		m_layerColor->setPositionY(35.f);
 		m_titleLabel->setPositionY(11.5);
+
+		if (!geode::Mod::get()->getSettingValue<bool>("squareColour"))
+			return true;
 		
 		std::string iconStr = icon;
 		if (!quest && iconStr.starts_with("color")) {
